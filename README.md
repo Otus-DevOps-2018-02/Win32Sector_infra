@@ -56,10 +56,10 @@ I know, --action allow is default, but I wanted to point this out explicitly.
 
 ##############################################
 
-'''
+```
 testapp_IP = 35.204.234.123
 testapp_port = 9292
-'''
+```
 
 ##############################################
 ##############################################
@@ -118,10 +118,10 @@ appuser@someinternalhost:~$
 Configuration of GCP VMs:
 Was created two VMs - bastion и someinternalhost
 
-'''
+```
 bastion_IP = 35.204.134.171
 someinternalhost_IP = 10.164.0.3
-'''
+```
 
 On the bastion VM was installed VPN server Pritunl with setup file setupvpn.sh
 
