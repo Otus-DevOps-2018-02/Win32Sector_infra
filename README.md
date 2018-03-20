@@ -9,7 +9,7 @@ Homework-5 cloud-testapp
 
 ##############################################
 
-1. All commands from homework was moved to three .sh scripts:
+1. All commands from homework-5 was moved to three .sh scripts:
 - install_ruby.sh
 - install_mongodb.sh
 - deploy.sh
@@ -26,7 +26,7 @@ gcloud compute instances create test-startup-script-from-file \
   --machine-type=g1-small \
   --tags puma-server \
   --restart-on-failure \
-  --metadata-from-file startup-script=/Users/win32sector/devops/Win32Sector_infra/startup-script.sh
+  --metadata-from-file startup-script=./startup-script.sh
 
 ##############################################
 
@@ -52,7 +52,7 @@ gcloud compute firewall-rules create default-puma-server \
 --source-ranges 0.0.0.0/0 \
 --target-tags puma-server
 
-I know, --action allow is default, but I wanted to point this out explicitly
+I know, --action allow is default, but I wanted to point this out explicitly.
 
 ##############################################
 
