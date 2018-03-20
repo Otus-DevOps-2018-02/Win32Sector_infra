@@ -56,10 +56,11 @@ I know, --action allow is default, but I wanted to point this out explicitly.
 
 ##############################################
 
-```
+Application config
+
 testapp_IP = 35.204.234.123
 testapp_port = 9292
-```
+
 
 ##############################################
 ##############################################
