@@ -1,6 +1,56 @@
 # Win32Sector_infra
 Win32Sector Infra repository
 ##############################################
+##############################################
+##############################################
+Homework-5 cloud-testapp
+##############################################
+1. All commands from homework was moved to three .sh scripts:
+- install_ruby.sh
+- install_mongodb.sh
+- deploy.sh
+##############################################
+2. Was added startup-script.sh with all commands from our sripts from first task.
+GCP WM created with command:
+
+gcloud compute instances create test-startup-script-from-file \
+  --boot-disk-size=10GB \
+  --image-family ubuntu-1604-lts \
+  --image-project=ubuntu-os-cloud \
+  --machine-type=g1-small \
+  --tags puma-server \
+  --restart-on-failure \
+  --metadata-from-file startup-script=/Users/win32sector/devops/Win32Sector_infra/startup-script.sh
+##############################################
+3. Next, startup-script.sh was uploaded to github gist and GCP VM created with command:
+
+gcloud compute instances create test-startup-script-app-url\
+  --boot-disk-size=10GB \
+  --image-family ubuntu-1604-lts \
+  --image-project=ubuntu-os-cloud \
+  --machine-type=g1-small \
+  --tags puma-server \
+  --restart-on-failure \
+  --metadata startup-script-url=https://gist.githubusercontent.com/Win32Sector/a0280fff7aba55c718cff22e01b96f02/raw/997ad71ca4919cdf561396045a86c2e925cc0f4b/gistfile1.txt
+##############################################
+4. Firewall rule default-puma-server was removed and was created again with gcloud command
+
+gcloud compute firewall-rules create default-puma-server \
+--action allow \
+--direction ingress \
+--rules tcp:9292 \
+--source-ranges 0.0.0.0/0 \
+--target-tags puma-server
+
+I know, --action allow is default, but I wanted to point this out explicitly
+##############################################
+testapp_IP = 35.204.234.123  
+testapp_port = 9292
+##############################################
+##############################################
+##############################################
+Homework-4 cloud-bastion
+##############################################
 How connect to someinternalhost in one command
 
 ssh -i ~/.ssh/appuser -o "ProxyCommand ssh -W %h:%p appuser@35.204.134.171" appuser@10.164.0.3
