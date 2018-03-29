@@ -3,6 +3,66 @@ Win32Sector Infra repository
 
 ##############################################
 ##############################################
+
+Homework-7
+
+##############################################
+
+It was awesome task - second task, when I must to add ssh-keys for several other users to the project metadata.
+
+The biggest trouble was to google how to do this. I don’t find ready-made solution and I created my own bicycle.
+
+What I done:
+
+- I created file public_keys.pub with four public keys for four users appeaser[1-4]
+- I added new variable «public_keys» to variables.tf 
+- I added value of «public_keys» to terraform.tfvars
+- I added new resource to main.tf resource "google_compute_project_metadata_item" "keys" where I added variable public_keys, from file.
+
+##############################################
+
+Task with two asterisks
+
+It was task, where I created http load balancer beetwen two app instances.
+
+I done this with using 
+
+```
+"google_compute_forwarding_rule",
+"google_compute_http_health_check",
+"google_compute_target_pool".
+```
+
+There is was interesting task to create several instances using "count". 
+I created variable "instance_names" in the file variables.tf with default values:
+
+```
+"0" = "reddit-app"
+"1" = "reddit-app2"
+```
+
+and after it, I added to resource "google_compute_instance" "app" in the main.tf file, 
+
+```
+count = "2"
+``` 
+
+and
+
+```
+name  = "${lookup(var.instance_names, count.index)}"
+```
+
+I added to outputs.tf  
+
+```
+app_external_ip_reddit-app
+app_external_ip_reddit_app2
+load_balancer_ip
+```
+
+It so flexible! I can create any count of VMs using this. May be is hard way to realize this, but it works.
+
 ##############################################
 
 Homework-5 cloud-testapp

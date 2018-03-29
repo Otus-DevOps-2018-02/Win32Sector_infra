@@ -5,7 +5,8 @@ provider "google" {
 }
 
 resource "google_compute_instance" "app" {
-  name         = "reddit-app"
+  count = "2"
+  name         = "${lookup(var.instance_names, count.index)}"
   machine_type = "g1-small"
   zone         = "europe-west1-b"
   tags         = ["reddit-app"]
@@ -21,7 +22,6 @@ resource "google_compute_instance" "app" {
     user        = "appuser"
     agent       = false
     private_key = "${file(var.private_key)}"
-
   }
 
   provisioner "file" {
@@ -57,7 +57,7 @@ resource "google_compute_firewall" "firewall_puma" {
 }
 
 resource "google_compute_project_metadata_item" "keys" {
-    project = "${var.project}"
-    key = "ssh-keys"
-    value = "${file(var.public_keys)}"
+  project = "${var.project}"
+  key     = "ssh-keys"
+  value   = "${file(var.public_keys)}"
 }

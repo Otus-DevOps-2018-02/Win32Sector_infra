@@ -23,6 +23,14 @@ variable zone {
   description = "The zone that the machine should be created in"
   default     = "europe-west1-b"
 }
+
 variable public_keys {
-    description = "File with other user's public keys"
+  description = "File with other user's public keys"
+}
+variable "instance_names" {
+    description = "Names for created several instances"
+    default = {
+        "0" = "reddit-app"
+        "1" = "reddit-app2"
+    }
 }
