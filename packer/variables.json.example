@@ -1,12 +1,5 @@
 {
-        "variables": {
-        "proj_id": null,
-        "source_image_family": null,
-        "image_description": null,
-        "disk_size": null,
-        "disk_type": null,
-        "network": null,
-        "tags": null,
+        "proj_id": "null",
+        "source_image_family": "null",
         "machine_type": "f1-micro"
     }
-}
