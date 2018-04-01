@@ -4,6 +4,44 @@ Win32Sector Infra repository
 ##############################################
 ##############################################
 
+Homework-8
+
+##############################################
+
+In first task with asterisk, I created remote backend with file backend.tf, executed command 
+```
+terraform init
+```
+it's copied my local terraform state to remote storage in gcp.
+
+Then, I move *tfstate files to temp dir outside infra repo and executed command
+```
+terraform plan
+```
+on stage and prod in one moment and receive this:
+```
+Acquiring state lock. This may take a few moments...
+
+Error: Error locking state: Error acquiring the state lock: 2 error(s) occurred:
+
+* writing "gs://storage-bucket-win32sector1/terraform/state/default.tflock" failed: googleapi: Error 412: Precondition Failed, conditionNotMet
+* storage: object doesn't exist
+
+Terraform acquires a state lock to protect the state from being written
+by multiple users at the same time. Please resolve the issue above and try
+again. For most commands, you can disable locking with the "-lock=false"
+flag, but this is not recommended.
+```
+
+Yhis is work of state lock of state in remote state. Thisi s awesome! When I deploying my infrastructure, no one can destroy or broke it!
+
+##############################################
+
+
+
+##############################################
+##############################################
+
 Homework-7
 
 ##############################################
