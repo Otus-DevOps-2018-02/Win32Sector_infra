@@ -11,6 +11,11 @@ variable app_disk_image {
   default     = "reddit-app-base"
 }
 
+variable private_key {
+  description = "Path to the private key used for ssh access"
+  default = "~/.ssh/appuser"
+}
+
 variable app_instance_name {
   description = "Name of reddit app instance"
   default     = "reddit-app"

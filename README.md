@@ -36,10 +36,6 @@ flag, but this is not recommended.
 Yhis is work of state lock of state in remote state. Thisi s awesome! When I deploying my infrastructure, no one can destroy or broke it!
 
 ##############################################
-
-
-
-##############################################
 ##############################################
 
 Homework-7

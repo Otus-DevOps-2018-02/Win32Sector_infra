@@ -29,14 +29,6 @@ resource "google_compute_instance" "app" {
     ssh-keys = "appuser:${file(var.public_key_path)}"
   }
 
-  provisioner "file" {
-    source = "puma.service"
-    destination = "/tmp/puma.service"
-  }
-  
-  provisioner "remote-exec" {
-    script = "deploy.sh"
-  }
 }
 
 resource "google_compute_address" "app_ip" {
