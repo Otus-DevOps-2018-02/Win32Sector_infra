@@ -33,7 +33,7 @@ again. For most commands, you can disable locking with the "-lock=false"
 flag, but this is not recommended.
 ```
 
-Yhis is work of state lock of state in remote state. Thisi s awesome! When I deploying my infrastructure, no one can destroy or broke it!
+This is work of state lock of state in remote state. Thisi s awesome! When I deploying my infrastructure, no one can destroy or broke it!
 
 ##############################################
 ##############################################
